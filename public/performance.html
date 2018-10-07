@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#animation{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: 3; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color:blue; left:200px; top:0px;}
+    100%   {background-color:red; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color:blue; left:200px; top:0px;}
+    100%   {background-color:red; left:0px; top:0px;}
+}
+</style>
+</head>
+<body>
+
+<div id="animation"></div>
+
+<button id="my-btn">Click Me</button>
+<div id="demo"></div>
+
+</body>
+
+<script>
+document.getElementById("my-btn").addEventListener("click", myFunction);
+
+function myFunction() {
+	console.log('click');
+    	document.getElementById("demo").innerHTML = "Hello World";
+}
+ 
+setInterval(calculatuion, 100);	
+function calculatuion() {
+	let result = new Array(1000);
+	
+	for (let i=0; i < result.length; i++) {
+		result[i]= Math.random();
+		result.sort();
+	}
+	console.log(result);
+}
+
+</script>
+</html>

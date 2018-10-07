@@ -1,0 +1,71 @@
+<html>
+<head></head>
+<body>
+    <div>
+        Test
+    </div>
+</body>
+<script>
+    const done = new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            resolve();
+        }, 300);
+    });
+
+    done
+        .then((value) => { 
+            console.log('done');
+        })
+        .catch((value) => { 
+            console.log('error');
+        })
+        .finally(() => {
+            console.log('everytime');
+        });
+
+    const error = new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            reject();
+        }, 300);
+    });
+
+    error
+        .then((value) => {
+            console.log('done');
+        })
+        .catch((value) => { 
+            console.log('error');
+        })        
+        .finally(() => {
+            console.log('everytime');
+        });
+
+
+
+    // const promise = fetch('http://localhost:8080/data1.json');
+    // promise
+    //     .then((response) => {
+    //         console.log('Get some data');
+    //     })
+    //     .catch(() => {
+    //         console.log('Some error');
+    //     })
+    //     .finally(() => {
+    //         console.log('Finished!');
+    //     });
+
+
+    // const promise2 = fetch('http://undefined');
+    // promise2
+    //     .then((response) => {
+    //         console.log('Get some data');
+    //     })
+    //     .catch(() => {
+    //         console.log('Something was going wrong');
+    //     })
+    //     .finally(() => {
+    //         console.log('Finished!');
+    //     });
+
+</script>
+</html>

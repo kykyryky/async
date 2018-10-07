@@ -1,0 +1,67 @@
+<html>
+<head></head>
+<body>
+    <div>
+        Test
+    </div>
+</body>
+<script>
+    // fetch('http://localhost:8080/data1.json')
+    //     .then(data => {
+    //         return data.json();
+    //     })
+    //     .then((data) => {
+    //         console.log(data);
+    //     })
+    //     .then(data => {
+    //         return fetch('http://localhost:8080/data2.json');
+    //     })
+    //     .then(data => {
+    //         return data.json();
+    //     })
+    //     .then((data) => {
+    //         console.log(data);
+    //     })
+    //     .then(data => {
+    //         return fetch('http://localhost:8080/data3.json');
+    //     })
+    //     .then(data => {
+    //         return data.json();
+    //     })
+    //     .then((data) => {
+    //         console.log(data);
+    //     });
+
+    // console.log('Start');
+    const promise1 = fetch('http://localhost:8081/data1.json');
+    const promise2 = fetch('http://localhost:8081/data2.json');
+    const promise3 = fetch('http://localhost:8081/data3.json');
+    
+    Promise
+        .all([promise1, promise2, promise3])        
+        .then(data => {
+            const [res1, res2, res3] = data;
+
+            complexFunction(res1, res2, res3);
+        })
+
+    function complexFunction(res1, res2, res3) {
+        console.log(res1, res2, res3);
+    }
+
+    /**console.log('Start');
+    const promise1 = fetch('http://localhost:8080/data1.json');
+    const promise2 = fetch('http://localhost:8080/data2.json');        
+    const promise3 = fetch('http://localhost:8080/data3.json');
+
+    Promise
+        .race([promise1, promise2, promise3])
+        .then(data => {            
+            console.log(data);            
+        })
+        .finally(() => {
+            console.log("Finished!");
+        });**/
+
+</script>
+</html>
